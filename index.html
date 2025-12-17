@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>警備Pro | 株式会社ビジコン・ジャパン</title>
+    <meta name="description" content="導入1,000社突破、継続率96.7%。警備業の管制・教育・請求・給与計算をこれ1つで。創業1991年の実績と最新のAI技術で、警備会社の経営課題を解決します。">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-container">
+            <a href="https://jbca.co.jp/" class="jbca-logo">
+                <span class="logo-jp">株式会社ビジコン・ジャパン</span>
+                <span class="logo-en">BUSICOM JAPAN., Ltd.</span>
+            </a>
+            
+            <nav class="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="https://jbca.co.jp/">HOME</a></li>
+                    <li><a href="https://jbca.co.jp/company/">COMPANY</a></li>
+                    <li><a href="https://jbca.co.jp/service/">SERVICE</a></li>
+                    <li><a href="https://jbca.co.jp/recruit/">RECRUIT</a></li>
+                    <li><a href="https://jbca.co.jp/news/">NEWS</a></li>
+                </ul>
+                <div class="header-cta-jbca">
+                    <a href="https://jbca.co.jp/contact/" class="btn-jbca-contact">
+                        CONTACT <i class="fas fa-chevron-right"></i>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="container hero-inner">
+            <div class="hero-content">
+                <div class="trust-badge-row fade-up">
+                    <span class="trust-badge"><i class="fas fa-history"></i> 創業<span class="calc-year">34</span>年の実績</span>
+                    <span class="trust-badge"><i class="fas fa-building"></i> 導入1,000社突破</span>
+                    <span class="trust-badge highlight"><i class="fas fa-heart"></i> 継続利用率 96.7%</span>
+                </div>
+                
+                <h1 class="hero-title fade-up">
+                    煩雑な警備業の管理を<br>
+                    <span class="marker-highlight">１つのソフトで完結。</span><br>
+                    <span class="text-sm">警備業界導入実績率No1.ソフト『警備Pro』<span class="action-note">※1</span></span>
+                </h1>
+                
+                <p class="hero-lead fade-up">
+                    <strong>「パソコンが苦手でも使える」</strong>と選ばれて30年以上。<br>
+                    管制・勤怠・請求・給与・経営・教育<br>
+                    警備会社に必要なすべてを、ひとつのシステムで。<br>
+                    貴社の「守り（リスク回避）」と「攻め（利益最大化）」を同時に支えます。
+                </p>
+                
+                <div class="hero-actions fade-up">
+                    <div class="action-group">
+                        <button class="btn btn-lg btn-primary shadow-hover" onclick="openModal()">
+                            まずは無料で試してみる <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <p class="action-note">※60秒で予約完了。営業担当が丁寧にご案内します。</p>
+                        <p class="action-note">※1.2025年11月時点での弊社調べとなります。</p>
+                    </div>
+                    <div class="tel-cta-hero">
+                        <span>お電話でのご相談も歓迎</span>
+                        <a href="tel:0924114450" class="tel-link"><i class="fas fa-phone-alt"></i>045-341-0246</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-image fade-up">
+                <div class="device-mockup">
+                    <div class="screen-header">
+                        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                        <span class="address-bar">警備Pro - かんたん管理画面</span>
+                    </div>
+                    <div class="screen-body">
+                        <div class="dashboard-grid">
+                            <div class="dash-card">
+                                <div class="d-title">本日の稼働率</div>
+                                <div class="d-val text-blue">98.5%</div>
+                                <div class="d-graph"><div class="bar" style="width:98%"></div></div>
+                            </div>
+                            <div class="dash-card">
+                                <div class="d-title">未実施教育</div>
+                                <div class="d-val text-red">0件</div>
+                                <div class="d-status"><i class="fas fa-check-circle"></i> 監査対応OK</div>
+                            </div>
+                            <div class="dash-card wide">
+                                <div class="d-title">管制状況（AIアシスト中）</div>
+                                <div class="row-list">
+                                    <div class="row-item">
+                                        <span class="badge red">欠員あり</span>
+                                        <span>A現場 (新宿)</span>
+                                        <button class="btn-xs">AI候補提案</button>
+                                    </div>
+                                    <div class="row-item">
+                                        <span class="badge green">上番完了</span>
+                                        <span>B現場 (渋谷)</span>
+                                        <span>7:55 打刻済</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="floating-caption">
+                        <i class="fas fa-mouse-pointer"></i> 文字が大きく、操作もシンプル！
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="logo-ticker-wrapper">
+        <p class="ticker-label">全国1,000社以上の警備会社様と共に歩んでいます</p>
+        <div class="logo-ticker">
+            <div class="ticker-track">
+                <div class="client-logo"><i class="fas fa-building"></i> 株式会社セキュリティ東京</div>
+                <div class="client-logo"><i class="fas fa-shield-alt"></i> ジャパンガードシステム</div>
+                <div class="client-logo"><i class="fas fa-user-shield"></i> 信頼警備保障</div>
+                <div class="client-logo"><i class="fas fa-city"></i> メトロパトロール株式会社</div>
+                <div class="client-logo"><i class="fas fa-hard-hat"></i> 建設誘導サービス</div>
+                <div class="client-logo"><i class="fas fa-traffic-light"></i> トラフィックガード</div>
+                <div class="client-logo"><i class="fas fa-building"></i> 株式会社セキュリティ東京</div>
+                <div class="client-logo"><i class="fas fa-shield-alt"></i> ジャパンガードシステム</div>
+                <div class="client-logo"><i class="fas fa-user-shield"></i> 信頼警備保障</div>
+                <div class="client-logo"><i class="fas fa-city"></i> メトロパトロール株式会社</div>
+                <div class="client-logo"><i class="fas fa-hard-hat"></i> 建設誘導サービス</div>
+                <div class="client-logo"><i class="fas fa-traffic-light"></i> トラフィックガード</div>
+            </div>
+        </div>
+    </div>
+
+    <section class="mission-section">
+        <div class="container">
+            <div class="mission-content fade-up">
+                <div class="mission-header">
+                    <h2 class="mission-title">
+                        私たちが<span class="calc-year">34</span>年間、<br>警備業界だけに特化し続ける理由。
+                    </h2>
+                    <p class="mission-sub">警備業の経営は、一般的な「効率化」だけでは守りきれない。</p>
+                </div>
+                <div class="mission-body">
+                    <p>
+                        「警備業法」に基づく厳格な書類管理と監査対応。<br>
+                        1円の計算ミスが利益を圧迫する、複雑な給与・請求構造。<br>
+                        そして、待ったなしの高齢化と人手不足。
+                    </p>
+                    <p>
+                        警備会社の経営には、他業種とは比較にならない<strong>「特殊なハードル」</strong>がいくつも存在します。<br>
+                        汎用的な勤怠ソフトや管理ツールでは、これらの<strong>「見えないリスク」</strong>まではカバーできません。
+                    </p>
+                    <p>
+                        私たちが提供するのは、単なる業務ツールの導入ではありません。<br>
+                        法を遵守し、適正な利益を確保し、会社を次代へつなぐための<strong>「経営の防波堤」</strong>です。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="problems section-padding" id="problems">
+        <div class="problems-bg-text">ISSUES</div>
+        
+        <div class="container relative-z">
+            <div class="section-head text-center">
+                <span class="tag-line">SUPPORT FOR PRESIDENTS</span>
+                <h2 class="section-title">
+                    人手不足・法改正・コスト高…。<br>
+                    おひとりで<span class="text-highlight">「負担」</span>を抱えていませんか？
+                </h2>
+                <p class="section-lead">
+                    環境が厳しくなる今だからこそ。<br>
+                    経営のリスクとストレスを、システムが肩代わりします。
+                </p>
+            </div>
+            
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <div class="card-decoration"></div>
+                    <div class="p-icon-wrapper">
+                        <i class="fas fa-user-clock"></i>
+                    </div>
+                    <div class="card-body">
+                        <h3>ベテラン社員への<br>「業務集中」</h3>
+                        <p>業務管理は、経験豊富な担当者様の「知識」と「時間」で支えられています。もしその方が不在になった際、業務を回せる体制は整っておりますでしょうか？</p>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="card-decoration"></div>
+                    <div class="p-icon-wrapper">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <div class="card-body">
+                        <h3>年々複雑になる<br>「法令対応」</h3>
+                        <p>法改正のたびに、書式の変更や運用の見直しに追われていませんか？ 現場を守りながら、膨大な書類作成も完璧にこなすには、マンパワーだけでは限界です。</p>
+                    </div>
+                </div>
+
+                <div class="problem-card">
+                    <div class="card-decoration"></div>
+                    <div class="p-icon-wrapper">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="card-body">
+                        <h3>見えにくくなる<br>「現場の採算」</h3>
+                        <p>多忙な業務に追われ、「どの現場で・どれくらいの利益が出ているか」の正確な把握が後回しになっていませんか？ 収支が見えない状態は、経営の大きなリスクです。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="solutions section-padding bg-gray" id="solutions">
+        <div class="container">
+            <div class="section-head text-center">
+                <span class="tag-line">TRUSTED PARTNER</span>
+                <h2 class="section-title"><span class="calc-year">34</span>年の実績 × 最新のAI技術。<br>貴社の<span class="text-accent">「利益の可視化」</span>と<span class="text-accent">「成長」</span>を支えます。</h2>
+            </div>
+
+            <div class="feature-block reverse">
+                <div class="feature-img fade-right">
+                    <div class="img-placeholder control-ui">
+                        <div class="chat-ui-container">
+                            <div class="chat-msg right">
+                                <div class="chat-bubble">「経営に役立つ資料は出せる？」</div>
+                                <span class="chat-meta">担当者様</span>
+                            </div>
+                            <div class="chat-msg left">
+                                <div class="chat-bubble">「可能です！『メインメニュー』 > 『請求管理』 > 『実粗利確認表』/『収支予測表』などがございます。」</div>
+                                <span class="chat-meta">AIチャットボット</span>
+                            </div>
+                            <div class="ai-typing">
+                                <span class="ai-dot"></span><span class="ai-dot"></span><span class="ai-dot"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="feature-text fade-left">
+                    <div class="f-label color-1">AIチャットボット</div>
+                    <h3>操作の疑問はAIが即座に解決。<br>問い合わせもマニュアルをめくる時間も不要です。</h3>
+                    <p>「この処理はどうやるんだっけ？」「設定方法を忘れてしまった」といった操作の疑問も、AIチャットボットに聞くだけ。システムの使い方を即座に案内してくれるため、分厚いマニュアルから探す手間がなくなり、新人担当者様でも迷わず業務を進められます。</p>
+                </div>
+            </div>
+
+            <div class="feature-block">
+                <div class="feature-img fade-left">
+                    <div class="img-placeholder edu-ui">
+                        <div class="doc-stack">
+                            <div class="doc-paper">
+                                <div class="doc-lines"></div>
+                                <div class="doc-stamp">最新法令<br>対応済</div>
+                            </div>
+                            <div class="doc-label">システム自動アップデート</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="feature-text fade-right">
+                    <div class="f-label color-2">進化するコンプライアンス</div>
+                    <h3>システムは「日々」進化する。<br>もう、法改正を恐れる必要はありません。</h3>
+                    <p>警備業法や労働関連のルールは日々変化します。警備Proは「日々のアップデート」で最新の法改正や運用ルールを即座に反映。担当者様が自ら情報を追わなくても、ログインするだけで常に「正しい運用」ができる環境を提供します。</p>
+                </div>
+            </div>
+
+            <div class="feature-block reverse">
+                <div class="feature-img fade-right">
+                    <div class="img-placeholder money-ui">
+                        <div class="calc-ui">
+                            <div class="calc-row"><span>A現場(利益率)</span><span class="text-red">5%</span></div>
+                            <div class="calc-row"><span>B現場(利益率)</span><span class="text-blue">25%</span></div>
+                            <div class="calc-total"><span>現場別収支</span><span>¥1,000,000</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="feature-text fade-left">
+                    <div class="f-label color-3">経営の可視化</div>
+                    <h3>現場ごとの収支を可視化。<br>経営判断をよりスムーズに。</h3>
+                    <p>勤務データが給与・請求へ直結することで、現場別・隊員別の収支がリアルタイムで可視化されます。「利益率の高い現場」や「改善が必要な案件」が一目で分かり、次の経営戦略が立てやすくなります。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pro-series section-padding" id="pro-series">
+        <div class="container">
+            <div class="section-head text-center">
+                <span class="tag-line">PRODUCT LINEUP</span>
+                <h2 class="section-title">現場から経営まで。<br>選べる<span class="text-accent">3つのProシリーズ</span></h2>
+            </div>
+            
+            <div class="pro-grid">
+                <div class="pro-card core fade-up">
+                    <div class="pro-card-header">
+                        <div class="pro-icon-box"><i class="fas fa-desktop"></i></div>
+                        <div class="pro-title-group">
+                            <h3>警備Pro</h3>
+                            <span class="pro-tag">基幹システム</span>
+                        </div>
+                    </div>
+                    <div class="pro-body">
+                        <p class="pro-catch">勤怠・請求・給与・管制・教育。<br>警備業のすべてを、この1つで。</p>
+                        <ul class="pro-feature-list">
+                            <li>日報入力で給与・請求データを自動作成</li>
+                            <li>警備業特有の帳票をボタン1つで出力</li>
+                            <li>現場別収支のリアルタイム可視化</li>
+                        </ul>
+                    </div>
+                    <div class="pro-btn-area">
+                        <button class="btn btn-primary w-100" onclick="openModal()">無料デモを予約する <i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="pro-card option-1 fade-up">
+                    <div class="pro-card-header">
+                        <div class="pro-icon-box"><i class="fas fa-mobile-alt"></i></div>
+                        <div class="pro-title-group">
+                            <h3>管制Pro</h3>
+                            <span class="pro-tag">スマホ連携</span>
+                        </div>
+                    </div>
+                    <div class="pro-body">
+                        <p class="pro-catch">隊員様のスマホとリアルタイム連携。<br>電話連絡の手間をゼロに。</p>
+                        <ul class="pro-feature-list">
+                            <li>シフト・配置情報をスマホへ一斉送信</li>
+                            <li>上下番連絡・経費申請もアプリで完結</li>
+                            <li>休暇申請や警備日報もペーパーレス化</li>
+                        </ul>
+                    </div>
+                    <div class="pro-btn-area">
+                        <a href="https://jbca.co.jp/smartphone-de-attendance/" class="btn btn-outline-primary w-100" target="_blank">機能詳細を見る <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+
+                <div class="pro-card option-2 fade-up">
+                    <div class="pro-card-header">
+                        <div class="pro-icon-box"><i class="fas fa-book-reader"></i></div>
+                        <div class="pro-title-group">
+                            <h3>教育Pro</h3>
+                            <span class="pro-tag">コンプライアンス</span>
+                        </div>
+                    </div>
+                    <div class="pro-body">
+                        <p class="pro-catch">複雑な「備え付け書類」を自動作成。<br>監査リスクを徹底排除。</p>
+                        <ul class="pro-feature-list">
+                            <li>警備Proと連動し教育実施簿を自動生成</li>
+                            <li>未実施者のアラート機能で漏れを防止</li>
+                            <li>法改正による書式変更も自動更新</li>
+                        </ul>
+                    </div>
+                    <div class="pro-btn-area">
+                        <a href="https://jbca.co.jp/pro/security_edu/" class="btn btn-outline-primary w-100" target="_blank">機能詳細を見る <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cases section-padding bg-white" id="cases">
+        <div class="container">
+            <div class="section-head text-center">
+                <span class="tag-line">VOICE OF USERS</span>
+                <h2 class="section-title">創業期の立ち上げから、組織改革まで。<br><span class="text-accent">「選んでよかった」</span>の声を頂きました。</h2>
+            </div>
+            
+            <div class="cases-grid three-col">
+                
+                <div class="case-card">
+                    <div class="case-img">
+                        <div class="case-label">創業・スタートアップ</div>
+                        <div class="img-fill bg-case-1"></div>
+                    </div>
+                    <div class="case-content">
+                        <div class="case-company">A警備保障 様（在籍20名）</div>
+                        <h3 class="case-title">システムにできることはシステムに</h3>
+                        <p class="case-desc">
+                            前職ではExcelや手作業での管理に忙殺され、業務課題が山積みでした。だからこそ独立時は「最初からシステムを入れる」と決めていました。<br><br>
+                            警備Proは画面がシンプルで、初回のサポートだけですぐに操作をマスター。遠隔サポートもあるので、運用への不安はすぐに消えました。「これなら業務改善ができる」と確信し、前職の会社にも紹介したほどです。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="case-card">
+                    <div class="case-img">
+                        <div class="case-label">成長・拡大期</div>
+                        <div class="img-fill bg-case-2"></div>
+                    </div>
+                    <div class="case-content">
+                        <div class="case-company">Bセキュリティー 様（在籍50名）</div>
+                        <h3 class="case-title">現状で十分と思っていましたが、もう戻れません</h3>
+                        <p class="case-desc">
+                            Excel管理で回ってはいたので、当初はお断りするつもりでした。しかしデモを見て「もっと早く入れればよかった」と後悔しました。<br><br>
+                            圧倒的な機能差と費用対効果の高さ。特にスマホアプリでの上番報告やテレワーク対応など、時代に合った機能が充実しています。おかげで隊員数が増えた今でも、事務負担は増えるどころか減っています。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="case-card">
+                    <div class="case-img">
+                        <div class="case-label">変革・成熟期</div>
+                        <div class="img-fill bg-case-3" style="background-color:#94a3b8;"></div>
+                    </div>
+                    <div class="case-content">
+                        <div class="case-company">Cガード 様（在籍300名）</div>
+                        <h3 class="case-title">システムも時代と共に進化が必要だと痛感しました。</h3>
+                        <p class="case-desc">
+                            他社ソフトを使っており不満はありませんでしたが、「一歩先の提案」という言葉に惹かれ話を聞きました。<br><br>
+                            そこで提示されたのは、単なる効率化ではなく、AI配置による「離職率低下」という経営課題へのアプローチ。個人がスマホを最新にするように、企業のシステムも時代と共に変えるべきだと決断しました。
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="support-section section-padding bg-dark">
+        <div class="container">
+            <div class="section-head text-center text-white">
+                <span class="tag-line text-accent">SECURITY & SUPPORT</span>
+                <h2 class="section-title2">ITが苦手でも安心。<br>万全の<span class="text-accent">守りと支え</span>。</h2>
+            </div>
+            <div class="support-grid">
+                <div class="support-item">
+                    <div class="s-icon"><i class="fas fa-headset"></i></div>
+                    <h3>問い合わせサポート完備</h3>
+                    <p>AIチャットボットだけでなく、サポートスタッフがお電話やメッセージで丁寧に操作方法をご案内します。IT担当者が不在の会社様でも安心です。</p>
+                </div>
+                <div class="support-item">
+                    <div class="s-icon"><i class="fas fa-server"></i></div>
+                    <h3>堅牢なセキュリティ</h3>
+                    <p>データは通信時・保管時ともに暗号化。国内最高水準のサーバーセンターで、マイナンバーや顧客情報を厳重に管理します。</p>
+                </div>
+                <div class="support-item">
+                    <div class="s-icon"><i class="fas fa-sync-alt"></i></div>
+                    <h3>自動バックアップ</h3>
+                    <p>万が一パソコンが壊れても、データはクラウド上にあるため消えません。地震や災害時のBCP（事業継続計画）対策としても有効です。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="flow-section section-padding" id="flow">
+        <div class="container">
+            <div class="section-head text-center">
+                <span class="tag-line">HOW TO START</span>
+                <h2 class="section-title"><span class="text-accent">最短3日</span>で運用開始。<br>スムーズな導入フロー</h2>
+            </div>
+            <div class="flow-steps">
+                <div class="flow-step">
+                    <div class="step-num">01</div>
+                    <div class="step-icon"><i class="far fa-calendar-check"></i></div>
+                    <h3>デモ・ヒアリング</h3>
+                    <p>まずは無料デモで実際の画面をご覧ください。貴社の課題に合わせて最適なプランをご提案します。</p>
+                </div>
+                <div class="flow-step">
+                    <div class="step-num">02</div>
+                    <div class="step-icon"><i class="fas fa-file-contract"></i></div>
+                    <h3>お申し込み</h3>
+                    <p>プラン決定後、契約書を交わします。電子契約に対応しており、即日手続きが可能です。</p>
+                </div>
+                <div class="flow-step">
+                    <div class="step-num">03</div>
+                    <div class="step-icon"><i class="fas fa-cogs"></i></div>
+                    <h3>初期設定・研修</h3>
+                    <p>隊員データや現場情報の登録をサポート。管理者様向けの操作説明会も実施いたします。</p>
+                </div>
+                <div class="flow-step">
+                    <div class="step-num">04</div>
+                    <div class="step-icon"><i class="fas fa-flag-checkered"></i></div>
+                    <h3>運用開始</h3>
+                    <p>いよいよ本番運用です。運用開始後もチャットや電話でのサポート体制が整っています。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="diagnosis-section section-padding" id="diagnosis">
+        <div class="container">
+            <div class="section-head text-center">
+                <span class="tag-line">ROI SIMULATION</span>
+                <h2 class="section-title">貴社に<span class="text-accent">必要なプラン</span>と<br><span class="text-accent">導入効果</span>はどれくらい？</h2>
+                <p class="section-lead">
+                    4つの質問に答えるだけで、導入による<br>
+                    「必要なプラン」と「導入効果」を無料診断します。
+                </p>
+            </div>
+
+            <div class="diagnosis-wrapper">
+                <div class="diagnosis-form">
+                    
+                    <div class="diag-group">
+                        <label class="diag-label">Q1. 取り扱っている警備業務は？（複数選択可）</label>
+                        <div class="checkbox-grid small-grid">
+                            <label class="check-box">
+                                <input type="checkbox" name="biz-type" value="type2" checked>
+                                <span class="check-content sm-padding">
+                                    <i class="fas fa-traffic-light"></i>
+                                    <span>2号警備</span>
+                                </span>
+                            </label>
+                            <label class="check-box">
+                                <input type="checkbox" name="biz-type" value="type1">
+                                <span class="check-content sm-padding">
+                                    <i class="fas fa-building"></i>
+                                    <span>1号警備</span>
+                                </span>
+                            </label>
+                            <label class="check-box">
+                                <input type="checkbox" name="biz-type" value="type3">
+                                <span class="check-content sm-padding">
+                                    <i class="fas fa-truck-loading"></i>
+                                    <span>3号警備</span>
+                                </span>
+                            </label>
+                            <label class="check-box">
+                                <input type="checkbox" name="biz-type" value="type4">
+                                <span class="check-content sm-padding">
+                                    <i class="fas fa-user-secret"></i>
+                                    <span>4号警備</span>
+                                </span>
+                            </label>
+                            <label class="check-box">
+                                <input type="checkbox" name="biz-type" value="type5">
+                                <span class="check-content sm-padding">
+                                    <i class="fas fa-video"></i>
+                                    <span>5号警備</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="diag-group">
+                        <label class="diag-label">Q2. 現在の主な管理方法は？</label>
+                        <div class="radio-tile-group three-col">
+                            <label class="input-container">
+                                <input type="radio" name="current-method" value="paper" checked>
+                                <div class="radio-tile">
+                                    <i class="fas fa-pen-fancy"></i>
+                                    <span>紙・ホワイトボード</span>
+                                    <small class="tile-note">電話連絡が中心</small>
+                                </div>
+                            </label>
+                            <label class="input-container">
+                                <input type="radio" name="current-method" value="excel">
+                                <div class="radio-tile">
+                                    <i class="fas fa-file-excel"></i>
+                                    <span>Excel・LINE</span>
+                                    <small class="tile-note">集計作業が大変</small>
+                                </div>
+                            </label>
+                            <label class="input-container">
+                                <input type="radio" name="current-method" value="system">
+                                <div class="radio-tile">
+                                    <i class="fas fa-laptop-code"></i>
+                                    <span>他社ソフト</span>
+                                    <small class="tile-note">機能に不満がある</small>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="diag-group">
+                        <label class="diag-label">Q3. 所属している警備員数は？</label>
+                        <div class="range-container">
+                            <input type="range" id="diag-guards" min="10" max="500" step="5" value="50">
+                            <div class="range-value"><span id="diag-val-guards">50</span>名</div>
+                        </div>
+                    </div>
+
+                    <div class="diag-group">
+                        <label class="diag-label">Q4. 特に負担を感じている業務は？（複数選択可）</label>
+                        <div class="checkbox-grid">
+                            <label class="check-box">
+                                <input type="checkbox" name="issue" value="control" checked>
+                                <span class="check-content">
+                                    <i class="fas fa-phone-volume"></i>
+                                    <span>管制・配置</span>
+                                    <small>朝晩の電話連絡、急な欠員対応</small>
+                                </span>
+                            </label>
+                            <label class="check-box">
+                                <input type="checkbox" name="issue" value="edu" checked>
+                                <span class="check-content">
+                                    <i class="fas fa-chalkboard-teacher"></i>
+                                    <span>法定教育</span>
+                                    <small>実施簿作成、日程調整の手間</small>
+                                </span>
+                            </label>
+                            <label class="check-box">
+                                <input type="checkbox" name="issue" value="payroll" checked>
+                                <span class="check-content">
+                                    <i class="fas fa-calculator"></i>
+                                    <span>給与・請求</span>
+                                    <small>複雑な手当計算、請求書発行</small>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="diagnosis-result fade-up">
+                    <div class="result-header">診断結果</div>
+                    
+                    <div class="result-grid-new">
+                        <div class="result-left">
+                            <p class="res-sub-label">あなたへの推奨プラン</p>
+                            <div class="plan-badges" id="res-badges">
+                                </div>
+                            <p class="plan-desc" id="res-desc">
+                                </p>
+                        </div>
+
+                        <div class="result-right">
+                            <div class="metric-box">
+                                <p class="metric-label">事務作業時間の導入効果</p>
+                                <div class="metric-val text-gold">
+                                    <span class="val-num" id="res-hours">0</span><span class="unit">時間 /月</span>
+                                </div>
+                            </div>
+                            <div class="metric-box">
+                                <p class="metric-label">月間の利益貢献額</p>
+                                <div class="metric-val text-white">
+                                    <span class="yen">¥</span><span id="res-amount">0</span>
+                                </div>
+                                <div class="profit-visual">
+                                    <div class="pv-header">
+                                        <span class="pv-title">警備員配置 <span id="pv-count">0</span> 名分に相当</span>
+                                    </div>
+                                    <div id="pv-icons" class="pv-icons"></div>
+                                    <p class="pv-note">※令和7年度の交通誘導警備員A全国平均値より換算</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="reduction-bar-wrapper">
+                        <div class="rb-label">事務負担の導入効果イメージ</div>
+                        <div class="rb-track">
+                            <div class="rb-fill" style="width: 100%;">
+                                <span class="rb-text">現在：100%</span>
+                            </div>
+                            <div class="rb-fill rb-after" style="width: 30%;">
+                                <span class="rb-text">導入後：30%</span>
+                            </div>
+                        </div>
+                        <p class="rb-note">※貴社の状況に基づいた概算シミュレーションです</p>
+                    </div>
+
+                    <div class="result-action">
+                        <button class="btn btn-xl btn-accent w-100 shadow-pulse" onclick="inquireWithDiagnosis()">
+                            詳しいお見積り・診断結果を受け取る <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+
+                    <div class="reliability-note">
+                        <p class="source-data">
+                            <i class="fas fa-check-circle"></i>
+                            本シミュレーション値は、Proシリーズ利用ユーザー<span class="text-bold">（対象197社）</span>へのアンケート回答および実測値の平均に基づき算出しています。
+                        </p>
+                        
+                        <div class="calc-toggle">
+                            <button class="btn-text" onclick="toggleCalcDetails()">
+                                <i class="fas fa-calculator"></i> 試算の根拠・計算式を見る
+                                <i class="fas fa-chevron-down" id="toggle-icon"></i>
+                            </button>
+                        </div>
+
+                        <div id="calc-details" class="calc-details-box" style="display: none;">
+                            <div class="calc-row-logic">
+                                <h4><i class="fas fa-coins"></i> なぜ「時給」以上の導入効果になるのか？</h4>
+                                <p class="logic-desc">
+                                    本診断では、単なる作業者の時給だけでなく、会社が負担している<strong>「見えないコスト」</strong>などを含んだ単価設定を行っています。
+                                </p>
+                                <div class="invisible-cost-chart">
+                                    <div class="cost-bar">
+                                        <div class="cb-visible">時給</div>
+                                        <div class="cb-invisible">
+                                            <span>法定福利費</span>
+                                            <span>通信・備品費</span>
+                                            <span>手戻り/リスク</span>
+                                        </div>
+                                    </div>
+                                    <p class="cost-caption">一般的な人件費に加え、紙代・通信費、ミス修正にかかる管理コスト、採用教育費や請求漏れなどを加味した「会社負担単価（約2,600円/時 相当）」で算出しています。</p>
+                                </div>
+                            </div>
+
+                            <div class="calc-divider"></div>
+
+                            <div class="calc-row-logic">
+                                <h4><i class="fas fa-superscript"></i> 算出計算式</h4>
+                                <div class="formula-box">
+                                    <span class="f-item">基礎効果単価<br><small>(課題別積上)</small></span>
+                                    <span class="f-ope">×</span>
+                                    <span class="f-item">警備員数</span>
+                                    <span class="f-ope">×</span>
+                                    <span class="f-item">難易度係数<br><small>(業態・現管理法)</small></span>
+                                </div>
+                                <p class="logic-desc sm">
+                                    ※難易度係数：2号警備やアナログ管理など、業務負荷が高い環境ほど係数が高く（最大1.56倍）、改善効果が大きくなるよう調整されています。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section section-padding" id="faq">
+        <div class="container">
+            <div class="section-head text-center">
+                <span class="tag-line">Q&A</span>
+                <h2 class="section-title">よくある<span class="text-accent">ご質問</span></h2>
+            </div>
+            
+            <div class="faq-container fade-up">
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span><span class="q-mark">Q.</span>サポート体制について教えてください。</span>
+                        <div class="faq-toggle-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            導入後も安心して運用いただけるよう、お電話やメールでのサポートはもちろん、リモート操作や訪問によるサポート体制も整えております。IT操作に不安がある方でも、専任スタッフが丁寧に並走いたします。
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span><span class="q-mark">Q.</span>法改正などには対応していますか？</span>
+                        <div class="faq-toggle-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            はい、完全対応しています。警備業法や労働基準法、インボイス制度など、流動的に変化する法改正や制度変更に合わせてシステムを適時アップデートいたしますので、常に最新の法令に則った運用が可能です。
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span><span class="q-mark">Q.</span>別システムやExcelからデータを移行できますか？</span>
+                        <div class="faq-toggle-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            可能です。専用の取込フォーマット（コンバートシート）をご用意しており、現在管理されている従業員情報や得意先情報などのマスタデータをスムーズに移行・取り込みいただけます。
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span><span class="q-mark">Q.</span>自社独自の機能を追加するカスタマイズは可能ですか？</span>
+                        <div class="faq-toggle-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            はい、可能です。Proシリーズは自社開発システムのため、パッケージ機能をベースに、貴社独自の帳票対応や特殊な計算ルールの追加など、柔軟なカスタマイズ開発（別途お見積り）を承っております。
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span><span class="q-mark">Q.</span>クラウド型のシステムですか？</span>
+                        <div class="faq-toggle-icon"><i class="fas fa-chevron-down"></i></div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            お客様の運用方針に合わせて、「クラウド版」と「オンプレミス（PCインストール）版」のどちらも選択可能です。テレワーク対応や複数拠点管理にはクラウド、社内ネットワーク内での運用ならオンプレミスなど、最適な環境をご提案します。
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <div class="cta-bg"></div>
+        <div class="container cta-container">
+            <h2 class="cta-head">警備経営のDX、まずはここから。</h2>
+            <p class="cta-desc">
+                競合他社はすでに動き始めています。<br>
+                まずは無料デモで、その「楽さ」と「安心」を体感してください。
+            </p>
+            <div class="cta-buttons">
+                <button class="btn btn-xl btn-white" onclick="openModal()">
+                    <i class="far fa-envelope"></i> 無料デモ・相談を予約
+                </button>
+                <div class="cta-tel">
+                    <span class="tel-label">お電話でのご相談</span>
+                    <a href="tel:0924114450" class="tel-num"><i class="fas fa-phone"></i>045-341-0246</a>
+                    <span class="tel-time">平日 9:00 - 12:00 , 13:00 - 18:00</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer jbca-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="footer-logo">株式会社ビジコン・ジャパン</div>
+                    <address class="footer-address">
+                        〒231-0057<br>
+                        神奈川県横浜市中区曙町2-19-1 曙町新井ビル1002号<br>
+                        TEL：045-341-0246(代) / FAX：045-341-0201
+                    </address>
+                </div>
+                <div class="footer-links-row">
+                    <a href="https://jbca.co.jp/privacy/">プライバシーポリシー</a>
+                    <a href="https://jbca.co.jp/security/">情報セキュリティ基本方針</a>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; BUSICOM JAPAN., Ltd. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <div id="contactModal" class="modal">
+        <div class="modal-content fade-up">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div class="modal-head">
+                <h3>無料デモ・導入相談</h3>
+                <p>以下のフォームにご記入ください。<br>1営業日以内に担当よりご連絡いたします。</p>
+            </div>
+            <form class="contact-form">
+                <div class="form-item">
+                    <label>会社名 <span class="req">必須</span></label>
+                    <input type="text" placeholder="例：株式会社〇〇警備" required>
+                </div>
+                <div class="form-item">
+                    <label>ご担当者名 <span class="req">必須</span></label>
+                    <input type="text" placeholder="例：山田 太郎" required>
+                </div>
+                <div class="form-item">
+                    <label>電話番号 <span class="req">必須</span></label>
+                    <input type="tel" placeholder="090-1234-5678" required>
+                </div>
+                <div class="form-item">
+                    <label>メールアドレス <span class="req">必須</span></label>
+                    <input type="email" placeholder="example@keibi-pro.com" required>
+                </div>
+                <div class="form-item">
+                    <label>ご相談内容</label>
+                    <textarea id="contact-msg" placeholder="例：教育実施簿の作成を自動化したい、配置業務を効率化したい 等"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">送信する</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
