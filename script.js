@@ -3,29 +3,25 @@ document.addEventListener('DOMContentLoaded', () => {
     initDiagnosis();
     initMobileMenu();
     initFAQ();
-    initYearCalc(); // 年数自動計算の呼び出し
+    initYearCalc(); 
+    initDiagramLines();
 });
 
-// === 年数自動計算 (1991年3月基準) ===
+/* Year Auto Calc */
 function initYearCalc() {
     const startYear = 1991;
-    const startMonth = 2; // 3月 (JavaScriptの月は0始まりのため2)
+    const startMonth = 2; 
     const today = new Date();
-    
     let years = today.getFullYear() - startYear;
-    
-    // 現在の月が3月未満の場合は1年引く
     if (today.getMonth() < startMonth) {
         years--;
     }
-    
-    // クラスが付与された要素を全て更新
     document.querySelectorAll('.calc-year').forEach(el => {
         el.innerText = years;
     });
 }
 
-// === スクロールアニメーション ===
+/* Scroll Animation */
 function initScrollAnimation() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -37,13 +33,85 @@ function initScrollAnimation() {
 
     document.querySelectorAll('.fade-up, .feature-img, .feature-text').forEach(el => {
         if(!el.classList.contains('fade-up') && !el.classList.contains('fade-right') && !el.classList.contains('fade-left')) {
-            el.classList.add('fade-up'); // デフォルト
+            el.classList.add('fade-up'); 
         }
         observer.observe(el);
     });
 }
 
-// === ぴったり診断 & ROI計算 ===
+/* Diagram Lines */
+function initDiagramLines() {
+    const board = document.querySelector('.diagram-board');
+    if (!board) return;
+
+    let svg = board.querySelector('.diagram-svg');
+    if (!svg) {
+        svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+        svg.classList.add('diagram-svg');
+        board.prepend(svg);
+    }
+
+    const drawLine = (startSel, endSel, color = '#3b82f6') => {
+        const startEl = board.querySelector(startSel);
+        const endEl = board.querySelector(endSel);
+        if (!startEl || !endEl) return;
+
+        const startRect = startEl.getBoundingClientRect();
+        const endRect = endEl.getBoundingClientRect();
+        const boardRect = board.getBoundingClientRect();
+
+        const x1 = startRect.left + startRect.width / 2 - boardRect.left + board.scrollLeft;
+        const y1 = startRect.top + startRect.height / 2 - boardRect.top + board.scrollTop;
+        const x2 = endRect.left + endRect.width / 2 - boardRect.left + board.scrollLeft;
+        const y2 = endRect.top + endRect.height / 2 - boardRect.top + board.scrollTop;
+
+        const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+        line.setAttribute("x1", x1);
+        line.setAttribute("y1", y1);
+        line.setAttribute("x2", x2);
+        line.setAttribute("y2", y2);
+        line.setAttribute("stroke", color);
+        line.setAttribute("stroke-width", "2");
+        line.setAttribute("stroke-dasharray", "6, 4");
+        line.setAttribute("stroke-linecap", "round");
+        svg.appendChild(line);
+    };
+
+    const renderAllLines = () => {
+        while (svg.firstChild) svg.removeChild(svg.firstChild);
+        svg.style.width = board.scrollWidth + 'px';
+        svg.style.height = board.scrollHeight + 'px';
+
+        const colBlue = '#3b82f6';
+        drawLine('.area-order', '.area-auto', colBlue);
+        drawLine('.area-auto', '.area-send', colBlue);
+        drawLine('.area-send', '.area-shift', colBlue);
+        drawLine('.area-shift', '.area-contact', colBlue);
+        drawLine('.area-contact', '.area-report', colBlue);
+        drawLine('.area-report', '.area-workdata', colBlue);
+
+        drawLine('.area-workdata', '.area-invoice', colBlue);
+        drawLine('.area-invoice', '.area-payment', colBlue);
+        drawLine('.area-payment', '.area-mgmt', colBlue);
+        drawLine('.area-workdata', '.area-payroll', colBlue);
+
+        drawLine('.area-payroll', '.area-daily', colBlue);
+        drawLine('.area-payroll', '.area-ledger', colBlue);
+        drawLine('.area-payroll', '.area-yearend', colBlue);
+    };
+
+    window.addEventListener('load', renderAllLines);
+    if (document.readyState === 'complete') renderAllLines();
+    else setTimeout(renderAllLines, 500);
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(renderAllLines, 200);
+    });
+}
+
+/* Diagnosis */
 function initDiagnosis() {
     const guardsInput = document.getElementById('diag-guards');
     const typeChecks = document.querySelectorAll('input[name="biz-type"]');
@@ -53,31 +121,24 @@ function initDiagnosis() {
     if(!guardsInput) return;
 
     const runDiagnosis = () => {
-        // 1. 入力値の取得
         const guards = parseInt(guardsInput.value);
         document.getElementById('diag-val-guards').innerText = guards;
 
-        // Q1: 業務区分（係数設定）
-        // 優先度・係数順: 2号(1.3) > 1号(1.2) > 5号(1.15) > 4号(1.1) > 3号(1.05)
         let typeCoeff = 1.0;
         let selectedTypes = [];
         typeChecks.forEach(chk => {
             if(chk.checked) {
                 selectedTypes.push(chk.value);
-                // 各業務タイプの係数をチェックし、現在のtypeCoeffより大きければ更新
                 let currentCoeff = 1.0;
                 if(chk.value === 'type2') currentCoeff = 1.3;
                 else if(chk.value === 'type1') currentCoeff = 1.2;
                 else if(chk.value === 'type5') currentCoeff = 1.15;
                 else if(chk.value === 'type4') currentCoeff = 1.1;
                 else if(chk.value === 'type3') currentCoeff = 1.05;
-                
                 if(currentCoeff > typeCoeff) typeCoeff = currentCoeff;
             }
         });
 
-        // Q2: 現在の管理方法（係数）
-        // 紙=1.2, Excel=1.0, System=0.8
         let methodCoeff = 1.0;
         methodRadios.forEach(r => { 
             if(r.checked) {
@@ -87,12 +148,9 @@ function initDiagnosis() {
             }
         });
 
-        // Q4: 選択された課題
         let selectedIssues = [];
         issueChecks.forEach(chk => { if(chk.checked) selectedIssues.push(chk.value); });
 
-        // --- 削減効果計算 (ROI) ---
-        // ターゲット: 50名で22万円削減 (Control:2000, Edu:900, Payroll:1500)
         const baseMetrics = {
             'control': { cost: 2000, time: 45 }, 
             'edu':     { cost: 900,  time: 20 }, 
@@ -111,7 +169,6 @@ function initDiagnosis() {
             badgesContainer.innerHTML = '<span class="p-badge" style="background:rgba(255,255,255,0.2);color:white;">課題を選択してください</span>';
             descText = "現状の課題を選択すると、改善効果が表示されます。";
         } else {
-            // プランと数値の積み上げ
             if(selectedIssues.includes('control')) {
                 badgesContainer.innerHTML += '<span class="p-badge p-kansei">管制Pro</span>';
                 totalMonthlySaving += baseMetrics.control.cost;
@@ -128,7 +185,6 @@ function initDiagnosis() {
                 totalTimeSavingMin += baseMetrics.payroll.time;
             }
 
-            // テキスト生成
             if(selectedIssues.length === 3) {
                 descText = "すべての管理業務をDX化するフルパッケージ。<br>管理部門の残業をほぼゼロにし、コア業務へ集中できる環境を作ります。";
             } else if(selectedIssues.length === 2) {
@@ -140,104 +196,73 @@ function initDiagnosis() {
         
         descContainer.innerHTML = descText;
 
-        // 係数を適用 (業務区分 × 管理方法)
         const totalCoeff = typeCoeff * methodCoeff;
-
-        // 最終計算
-        // 金額 = (単価合計 * 係数 * 人数)
         const finalAmount = Math.floor(totalMonthlySaving * totalCoeff * guards);
         animateValue('res-amount', finalAmount);
 
-        // 時間 = (分合計 * 係数 * 人数) / 60
         const finalHours = Math.floor((totalTimeSavingMin * totalCoeff * guards) / 60);
         animateValue('res-hours', finalHours);
-
-        // === 負担軽減バーの動的変動ロジック（修正版：未選択時100%） ===
         
-        let remainingPercent = 100.0; // デフォルトは100%（削減なし）
-
-        // 課題が1つ以上選択されている場合のみ、削減計算を行う
+        let remainingPercent = 100.0;
         if (selectedIssues.length > 0) {
-            
-            // 1. ベースの削減率を決定（あえてキリの悪い数字を設定）
-            remainingPercent = 61.2; // デフォルト(他社ソフト)
-            
+            remainingPercent = 61.2;
             methodRadios.forEach(r => {
                 if(r.checked) {
-                    if(r.value === 'paper') remainingPercent = 28.4; // 紙
-                    if(r.value === 'excel') remainingPercent = 46.7; // Excel
-                    if(r.value === 'system') remainingPercent = 61.2; // システム
+                    if(r.value === 'paper') remainingPercent = 28.4;
+                    if(r.value === 'excel') remainingPercent = 46.7;
+                    if(r.value === 'system') remainingPercent = 61.2;
                 }
             });
 
-            // 2. 選択した課題数によるボーナス
             const issueCount = selectedIssues.length;
             if (issueCount === 2) remainingPercent -= 4.3;
             if (issueCount === 3) remainingPercent -= 8.9;
 
-            // 3. 隊員数による「ゆらぎ」の演出
             const fluctuation = (guards % 6) * 0.1; 
             remainingPercent -= fluctuation;
-
-            // 最小値ガード
             if (remainingPercent < 15.0) remainingPercent = 15.0;
         }
 
-        // 4. UIへの反映（小数点第1位まで表示）
         const barFill = document.querySelector('.rb-fill.rb-after');
         if (barFill) {
             const finalPercentStr = remainingPercent.toFixed(1);
-            
             barFill.style.width = finalPercentStr + '%';
-            
             const barText = barFill.querySelector('.rb-text');
             if (barText) {
                 barText.innerText = `導入後：${finalPercentStr}%`;
             }
         }
 
-        // === アイコンによる視覚化 ===
-        // 令和7年度の交通誘導警備員A全国平均値より換算
         const guardUnitPrice = 17931;
         const equivalentGuards = Math.floor(finalAmount / guardUnitPrice);
-
-        // 更新処理
         const countSpan = document.getElementById('pv-count');
         if(countSpan) countSpan.innerText = equivalentGuards;
 
         const iconContainer = document.getElementById('pv-icons');
         if(iconContainer) {
             iconContainer.innerHTML = '';
-            // アイコン生成
             for(let i=0; i < equivalentGuards; i++) {
                 const icon = document.createElement('i');
-                // 帽子を被った人物アイコン（警察風）が無料版にないため、人型（fa-user）を採用
                 icon.className = 'fas fa-user pv-icon';
                 iconContainer.appendChild(icon);
             }
         }
     };
 
-    // イベントリスナー
     guardsInput.addEventListener('input', runDiagnosis);
     typeChecks.forEach(c => c.addEventListener('change', runDiagnosis));
     methodRadios.forEach(r => r.addEventListener('change', runDiagnosis));
     issueChecks.forEach(c => c.addEventListener('change', runDiagnosis));
-    
-    // 初期実行
     runDiagnosis();
 }
 
-// 金額アニメーション
 function animateValue(id, end) {
     const obj = document.getElementById(id);
     if(!obj) return;
     const start = parseInt(obj.innerText.replace(/,/g, '')) || 0;
     if (start === end) return;
-
     const duration = 500;
     const startTime = performance.now();
-
     const step = (currentTime) => {
         const progress = Math.min((currentTime - startTime) / duration, 1);
         const value = Math.floor(progress * (end - start) + start);
@@ -249,19 +274,16 @@ function animateValue(id, end) {
     requestAnimationFrame(step);
 }
 
-// === 診断結果を持って問い合わせ ===
 function inquireWithDiagnosis() {
     const guards = document.getElementById('diag-guards').value;
     const amount = document.getElementById('res-amount').innerText;
     const hours = document.getElementById('res-hours').innerText; 
     
-    // 選択値のテキスト化
     let typeText = [];
     document.querySelectorAll('input[name="biz-type"]:checked').forEach(r => {
         typeText.push(r.nextElementSibling.innerText.trim());
     });
     
-    // labelタグ化に伴うセレクタ変更
     let methodText = "";
     document.querySelectorAll('input[name="current-method"]:checked').forEach(r => {
         methodText = r.nextElementSibling.querySelector('span').innerText;
@@ -269,7 +291,6 @@ function inquireWithDiagnosis() {
 
     const badges = document.getElementById('res-badges').innerText.replace(/\n/g, ' ');
     
-    // メッセージ生成
     const msg = `【Web診断結果からの相談】
 --------------------------------
 ■貴社状況
@@ -288,15 +309,12 @@ function inquireWithDiagnosis() {
     if(textArea) {
         textArea.value = msg;
     }
-    
     openModal();
 }
 
-// === モバイルメニュー ===
 function initMobileMenu() {
     const toggle = document.querySelector('.mobile-toggle');
     const nav = document.querySelector('.nav-menu');
-    
     if(toggle && nav) {
         toggle.addEventListener('click', () => {
             nav.style.display = nav.style.display === 'flex' ? '' : 'flex';
@@ -314,7 +332,6 @@ function initMobileMenu() {
     }
 }
 
-// === モーダル制御 ===
 function openModal() {
     document.getElementById('contactModal').classList.add('active');
 }
@@ -330,11 +347,9 @@ window.onclick = function(event) {
     }
 }
 
-// === 算出根拠の開閉 (追加) ===
 function toggleCalcDetails() {
     const box = document.getElementById('calc-details');
     const icon = document.getElementById('toggle-icon');
-    
     if (box.style.display === 'none') {
         box.style.display = 'block';
         icon.classList.remove('fa-chevron-down');
@@ -346,19 +361,13 @@ function toggleCalcDetails() {
     }
 }
 
-// === FAQ Accordion (New) ===
 function initFAQ() {
     const questions = document.querySelectorAll('.faq-question');
-    
     questions.forEach(q => {
         q.addEventListener('click', () => {
             const item = q.parentElement;
             const answer = item.querySelector('.faq-answer');
-            
-            // Toggle active class
             item.classList.toggle('active');
-            
-            // Slide animation
             if (item.classList.contains('active')) {
                 answer.style.height = answer.scrollHeight + 'px';
             } else {
